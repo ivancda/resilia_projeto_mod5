@@ -23,7 +23,7 @@ function App() {
           <Route path="/suporte" element={
             <Suporte />
           } />
-          <Route path="/dashboard" element={
+          <Route path="/dashboard/*" element={
             <Dashboard />
           } />
         </Routes>
