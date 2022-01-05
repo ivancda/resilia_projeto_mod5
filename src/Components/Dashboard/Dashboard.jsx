@@ -5,8 +5,8 @@ import Faturas from '../Faturas/Faturas'
 
 const data = [
   {
-    nome: 'teste',
-    url: 'https://randomuser.me/api/'
+    nome: 'faturas',
+    url: 'https://faturas-hotel-api.herokuapp.com/faturas'
   },
   {
     nome: 'teste',

@@ -8,8 +8,7 @@
     grid-template-areas:
       'imgCard imgCard imgCard title title title'
       'imgCard imgCard imgCard form form form'
-      'icons icons icons icons icons icons'
-      ;
+      'icons icons icons icons icons icons';
     grid-gap: 20px;
     font-size: larger;
     padding: 10px;

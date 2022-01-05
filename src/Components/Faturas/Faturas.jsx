@@ -1,28 +1,50 @@
 import React, { useEffect, useState } from 'react'
+import styles from './Faturas.module.css'
 
 function Req(props) {
 
-  const [data, setData] = useState([]) 
+  const [data, setData] = useState([])
 
-    useEffect(()=>{
-        request()
+  useEffect(() => {
+    request()
 
-    }, [])
+  }, [])
 
   async function request() {
     const response = await fetch(props.info.url)
     const json = await response.json()
-    // console.log(json)
-    return setData(json)
-}
+    return setData(json.Faturas)
+  }
 
   return (
-  <div >
-    {console.log(data)}
-    <h2>{props.info.nome}</h2>
-    
 
-  </div> 
+    <table>
+      <thead>
+        <tr>
+          <th colSpan="6" >Faturas</th>
+          <th>Ações</th>
+        </tr>
+        {data.length > 0 && (
+          <tr key={"header"}>
+            {Object.keys(data[0]).map((key) => (
+              <th>{key}</th>
+            ))}
+              <th><button>Criar fatura</button></th>
+          </tr>
+        )}
+        {data.map((item) => (
+          <tr key={item.ID}>
+            {Object.values(item).map((val) => (
+              <td>{val}</td>
+            ))}
+              <td>
+                <button>Editar</button>
+                <button>Excluir</button>
+              </td>
+          </tr>
+        ))}
+      </thead>
+    </table>
   )
 }
 
