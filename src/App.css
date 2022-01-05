@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'mainFont';
+  src: url('assets/Montserrat-Regular.ttf');
+}
+
+* {
+  font-family: 'mainFont';
+}
+
 .App {
   text-align: center;
 }
