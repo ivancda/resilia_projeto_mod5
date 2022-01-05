@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './Suporte.module.css'
 
-const Suporte = () => {
-    return 
+function Suporte() {
+    return (
+    <div>Suporte</div> 
+    )
 }
 
 export default Suporte
