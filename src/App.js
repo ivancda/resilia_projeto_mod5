@@ -1,4 +1,5 @@
 import './App.css';
+import Suporte from './Components/Suporte/Suporte';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header>
        
       </header>
+      <Suporte/>
     </div>
   );
 }
