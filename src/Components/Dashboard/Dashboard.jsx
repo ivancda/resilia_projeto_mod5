@@ -27,7 +27,7 @@ function Dashboard() {
 
 
   return (
-  <div className={styles.container}>
+  <div className={styles.dashContainer}>
     <div className={styles.buttonBox}>
         <NavLink to="faturas" className={styles.botao}>Faturas</NavLink>
         <NavLink to="hospedes" className={styles.botao}>Hospedes</NavLink>

@@ -1,0 +1,22 @@
+.headerContainer {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    background-color: dodgerblue;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.headerContainer li{
+    color: white;
+    list-style-type: none;
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.headerContainer img {
+    height: 4rem;
+}

@@ -5,9 +5,6 @@ import styles from './Faturas.module.css'
 
 function Req(props) {
 
-  function testeButton(d){
-    console.log(d)
-  }
 
   const [data, setData] = useState([])
 
@@ -21,6 +18,22 @@ function Req(props) {
     const json = await response.json()
     return setData(json.Faturas)
   }
+
+  async function delet(id) {
+    const response = await fetch(`${props.info.url}/${id}`,
+    {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/form-data',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    const json = await response.json()
+    console.log(json)
+     request()
+  }
+
   return (
     
     <table>
@@ -39,13 +52,12 @@ function Req(props) {
         )}
         {data.map((item) => (
           <tr>
-            {console.log(item.ID)}
             {Object.values(item).map((val) => (
               <td >{val}</td>
             ))}
               <td>
-                <button onClick={() => testeButton(item.ID)}>Editar</button>
-                <button>Excluir</button>
+                <button>Editar</button>
+                <button onClick={() => delet(item.ID)}>Excluir</button>
               </td>
           </tr>
         ))}

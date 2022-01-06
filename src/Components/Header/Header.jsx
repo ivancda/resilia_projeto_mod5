@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import styles from './Header.module.css'
+import logo from '../../assets/logo.png'
 
 export default function Header(){
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/suporte">Suporte</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/dashboard">Dashboard</Link>
+    <nav className={styles.headerContainer}>
+      
+      <Link to="/"><li><img src={logo} alt="" /></li></Link>
+      <Link to="/suporte"><li>Suporte</li></Link>
+      <Link to="/login"><li>Login</li></Link>
+      <Link to="/dashboard"><li>Dashboard</li></Link>
     </nav>
   )
 }
