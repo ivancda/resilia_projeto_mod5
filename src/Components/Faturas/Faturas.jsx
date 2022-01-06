@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Faturas.module.css'
 
+
+
 function Req(props) {
+
+  function testeButton(d){
+    console.log(d)
+  }
 
   const [data, setData] = useState([])
 
@@ -15,9 +21,8 @@ function Req(props) {
     const json = await response.json()
     return setData(json.Faturas)
   }
-
   return (
-
+    
     <table>
       <thead>
         <tr>
@@ -29,7 +34,7 @@ function Req(props) {
             {Object.keys(data[0]).map((key) => (
               <th>{key}</th>
             ))}
-              <th><button>Criar fatura</button></th>
+              <th><button >Criar fatura</button></th>
           </tr>
         )}
         {data.map((item) => (
@@ -39,7 +44,7 @@ function Req(props) {
               <td >{val}</td>
             ))}
               <td>
-                <button key={item.ID} onClick={item.ID}>Editar</button>
+                <button onClick={() => testeButton(item.ID)}>Editar</button>
                 <button>Excluir</button>
               </td>
           </tr>
