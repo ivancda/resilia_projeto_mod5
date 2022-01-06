@@ -45,7 +45,7 @@ function Req(props) {
         {data.length > 0 && (
           <tr key={"header"}>
             {Object.keys(data[0]).map((key) => (
-              <th>{key}</th>
+              <th>{key.toLowerCase().replace(/_/g,' ')}</th>
             ))}
               <th><button >Criar fatura</button></th>
           </tr>
