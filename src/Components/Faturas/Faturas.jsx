@@ -33,12 +33,13 @@ function Req(props) {
           </tr>
         )}
         {data.map((item) => (
-          <tr key={item.ID}>
+          <tr>
+            {console.log(item.ID)}
             {Object.values(item).map((val) => (
-              <td>{val}</td>
+              <td >{val}</td>
             ))}
               <td>
-                <button>Editar</button>
+                <button key={item.ID} onClick={item.ID}>Editar</button>
                 <button>Excluir</button>
               </td>
           </tr>
