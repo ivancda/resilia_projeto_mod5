@@ -18,7 +18,7 @@ const Modal = (props) => {
                     {props.children}
                 </div>
                 <div className={styles.modalFooter}>
-                    <button>Enviar</button>
+                    <button onClick={props.onClick}>Enviar</button>
                     <button onClick={props.onClose}>Fechar</button>
                 </div>
             </div>   
