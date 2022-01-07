@@ -6,7 +6,7 @@
     justify-content: center;
     flex-direction: column;
 }
-h1 {
+.titleLoading {
     font-family: var(--logo-font);
     font-size: 60px;
     text-align: center;

@@ -5,8 +5,6 @@
     width: 50%;
 }
 
-
-
 .headerContainer {
     width: 100%;
     display: flex;
@@ -27,7 +25,7 @@ a {
 }
 
 .headerContainer img {
-    height: 8rem;
+    height: 4rem;
     margin-left: 4rem;
 }
 

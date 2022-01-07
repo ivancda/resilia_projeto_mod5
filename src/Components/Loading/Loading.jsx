@@ -5,7 +5,7 @@ const Loading = () => {
     return (
         <div className={styles.loader}>
             <h2>Intranet</h2>
-            <h1>Hotel California</h1>  
+            <h1 className={styles.titleLoading}>Hotel California</h1>  
              <div className={styles.skFadingCircle}>
                 <div className={`${styles.skCircle1} ${styles.skCircle}`}></div>
                 <div className={`${styles.skCircle2} ${styles.skCircle}`}></div>
