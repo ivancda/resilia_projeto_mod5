@@ -33,14 +33,14 @@ function Dashboard() {
         <NavLink to="hospedes" className={styles.botao}>Hospedes</NavLink>
         <NavLink to="reservas" className={styles.botao}>Reservas</NavLink>
         <NavLink to="funcionarios" className={styles.botao}>Funcionarios</NavLink>
-        
+    </div>    
         <Routes>
           <Route path="faturas" element={
             <Faturas info={data[0]}/>
           }/>
         </Routes>
           
-    </div>
+    
 
     
   </div> 
