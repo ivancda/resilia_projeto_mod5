@@ -1,0 +1,122 @@
+body {
+    margin: 0
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.mainLogin{
+    /* width: 100vw; */
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.leftLogin{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.leftLogin > h1 {
+    font-size:3vw;
+    color:#088FFA
+}
+
+.leftLoginImage{
+    width:35vw;
+}
+.rightLogin{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardLogin{
+    width:60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #088FFA;
+    border-radius:20px;
+    box-shadow: 0px 10px 40px #00000056
+}
+
+.cardLogin > h1, p {
+    color: white
+}
+.textfield{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px 0px;
+}
+
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    color: black;
+    font-size:12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}
+.textfield > label{
+    color: white;
+    margin-bottom: 10px;
+}
+
+.textfield > input::placeholder{
+    color: #A7ABBF
+}
+.btnLogin{
+    width:100%;
+    padding: 16px 0px;
+    margin:25px;
+    border:none;
+    border-radius: 8px;
+    outline:none;
+    font-weight: 800;
+    cursor:pointer;
+    box-shadow: 0px 10px 40px -12px;
+}
+
+@media only screen and (max-width: 710px){
+    .cardLogin{
+        width: 85%;
+    }
+    .leftLoginImage{
+        display: none
+    }
+
+    .mainLogin{
+        flex-direction: column;
+        display: block;
+        font-size: 20px;
+    }
+
+    .leftLogin{
+        width:100%;
+        height: auto;
+    }
+    .rightLogin{
+        width:100%;
+        height: auto;
+    }
+    
+    .cardLogin{
+        width: 90%;
+    }
+}
