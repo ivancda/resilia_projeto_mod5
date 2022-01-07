@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png'
 export default function Header(){
   return (
     <nav className={styles.headerContainer}>
-      <Link to="/"><a><img src={logo} alt="" /></a></Link>
+      <Link to="/resilia_projeto_mod5"><a><img src={logo} alt="" /></a></Link>
       
       <ul className={styles.lista}>
       <Link to="/resilia_projeto_mod5"><li>Home</li></Link>
