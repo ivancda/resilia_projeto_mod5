@@ -24,13 +24,13 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={
+          <Route path="/resilia_projeto_mod5/" element={
             <Home />
           } />
-          <Route path="/suporte" element={
+          <Route path="/resilia_projeto_mod5/suporte" element={
             <Suporte />
           } />
-          <Route path="/dashboard/*" element={
+          <Route path="/resilia_projeto_mod5/dashboard/*" element={
             <Dashboard />
           } />
         </Routes>
