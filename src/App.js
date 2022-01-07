@@ -17,9 +17,6 @@ function App() {
           <Route path="/" element={
             <Home />
           } />
-          <Route path="/login" element={
-            <Login />
-          } />
           <Route path="/suporte" element={
             <Suporte />
           } />
