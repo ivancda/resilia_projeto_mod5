@@ -1,16 +1,25 @@
+.lista{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
+
+
+
 .headerContainer {
     width: 100%;
     display: flex;
     gap: 1rem;
     background-color: dodgerblue;
-    align-items: center;
-    justify-content: space-around;
+    align-items:center;
+    justify-content: space-between;
 }
 
 .headerContainer li{
     color: white;
     list-style-type: none;
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 
 a {
@@ -19,4 +28,13 @@ a {
 
 .headerContainer img {
     height: 4rem;
+}
+
+@media only screen and (max-width: 710px){
+    .lista{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+    }
 }
