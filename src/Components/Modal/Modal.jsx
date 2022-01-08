@@ -16,18 +16,11 @@ const Modal = (props) => {
                 <div className={styles.modalBody}>
                     {props.children}
                 </div>
-                <div className={styles.modalFooter}>
-                    <button onClick={props.onClick}>Enviar</button>
-                    <button onClick={props.onClose}>Fechar</button>
-                </div>
             </div>   
         </div>
     )
 }
 
-Modal.propTypes = {
-
-}
 
 export default Modal
 

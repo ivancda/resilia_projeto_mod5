@@ -43,3 +43,58 @@ form input {
 form input {
     width: 100%;
 }
+
+.deleteBtn {
+    cursor: pointer;
+    margin: 3px 6px;
+    border-radius: 10px;
+    border: solid red 2px;
+    background-color: red;
+    color: #f2f2f2;
+    font-weight: 700;
+}
+
+.deleteBtn:hover {
+    background-color: white;
+    color: red;
+}
+
+.updateBtn{
+    cursor: pointer;
+    margin: 3px 6px;
+    border-radius: 10px;
+    border: solid dodgerblue 2px;
+    background-color: dodgerblue;
+    color: #f2f2f2;
+    font-weight: 700;
+}
+
+.updateBtn:hover{
+    background-color: white;
+    color: dodgerblue;
+}
+
+
+.postBtn {
+    cursor: pointer;
+    margin: 3px 6px;
+    border-radius: 10px;
+    border: solid green 2px;
+    background-color: green;
+    color: #f2f2f2;
+    font-weight: 700;
+}
+
+.postBtn:hover {
+    background-color: white;
+    color: green;
+}
+
+.warning {
+    color: red;
+    font-weight:700 ;
+}
+
+.divBtn{
+    margin:20px;
+}
