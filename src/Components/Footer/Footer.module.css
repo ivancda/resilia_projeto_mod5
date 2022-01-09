@@ -1,0 +1,20 @@
+.footer{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    background-color: dodgerblue;
+    align-items:center;
+    justify-content: initial;
+}
+
+.footer p{
+    color: white;
+    padding: 5px 0px;
+    padding-left:5em
+}
+
+.footer p::before{
+    content: '® ';
+    color: blanchedalmond;
+
+}
