@@ -95,3 +95,11 @@ body * {
     font-size: 12pt
 }
 
+.titleLabel{
+    color: white;
+}
+
+form{
+    width: auto;
+}
+

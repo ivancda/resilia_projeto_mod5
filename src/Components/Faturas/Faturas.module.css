@@ -91,10 +91,15 @@ form input {
 }
 
 .warning {
-    color: red;
+    color: dodgerblue;
     font-weight:700 ;
 }
 
 .divBtn{
     margin:20px;
+}
+
+
+label{
+    color: black;
 }

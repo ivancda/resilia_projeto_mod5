@@ -7,20 +7,20 @@ function Suporte() {
             <img src="https://i.pinimg.com/originals/1f/3c/c2/1f3cc216d3bcd5584f87c7b7f5b978a2.jpg" className={styles.item3} alt="coruja" />
             <h1 className={styles.item4}>Suporte rápido</h1>
             <form className={styles.item1}>
-                <label htmlFor="Nome">Digite seu nome:</label>
+                <label htmlFor="Nome" className={styles.titleLabel}>Digite seu nome:</label>
                 <input type="text" name="Nome" placeholder="Nome" required />
-                <label htmlFor="Email">Digite seu email:</label>
+                <label htmlFor="Email" className={styles.titleLabel}>Digite seu email:</label>
                 <input type="email" name="Email" placeholder="Email" required />
-                <label htmlFor="Telefone">Telefone para contato:</label>
+                <label htmlFor="Telefone" className={styles.titleLabel}>Telefone para contato:</label>
                 <input type="tel" name="Telefone" placeholder="(xx)xxxxx-xxxx" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required />
-                <label htmlFor="mensagem">Descreva seu problema:</label>
+                <label htmlFor="mensagem" className={styles.titleLabel}>Descreva seu problema:</label>
                 <textarea name="Mensagem" id="" cols="30" rows="8" placeholder="Digite sua mensagem..."></textarea>
                 <button type="submit">Enviar</button>
             </form>
             <div className={styles.item2}>
                 <div>
                     <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" alt="form1" />
-                    <h3 >Endereço</h3>
+                    <h3>Endereço</h3>
                     <p className={styles.item5}>Rua Resilia - nº08, Coruja, São Paulo</p>
                 </div>
                 <div>
