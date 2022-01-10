@@ -14,6 +14,10 @@
     justify-content: space-between;
 }
 
+.headerContainer .logoStyle{
+    padding: 5px 0px
+}
+
 .headerContainer li{
     color: white;
     list-style-type: none;

@@ -21,17 +21,17 @@ function Suporte() {
                 <div>
                     <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" alt="form1" />
                     <h3 >Endereço</h3>
-                    <p >Rua resilia n:08 bairro coruja</p>
+                    <p className={styles.item5}>Rua Resilia - nº08, Coruja, São Paulo</p>
                 </div>
                 <div>
                     <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png" alt="form2"/>
                     <h3>Telefone</h3>
-                    <p>(11)8888-88888</p>
+                    <p className={styles.item5}>(11)8888-88888</p>
                 </div>
                 <div>
                     <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png" alt="form3"/>
                     <h3>Email</h3>
-                    <p>suporte@coruja.com</p>
+                    <p className={styles.item5}>suporte@coruja.com</p>
                 </div>
             </div>
         </div>

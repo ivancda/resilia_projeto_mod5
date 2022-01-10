@@ -21,11 +21,11 @@ const LoginForm = () => {
                 <p>Ao acessar este site, você confirma que este computador está em conformidade com a política de segurança da sua organização.</p>
                 <div className={styles.textfield}>
                     <label for="usuario">Usuário</label>
-                    <input type='text' name='usuario' placeholder="conta@example.com"></input>
+                    <input type='text' name='usuario' placeholder="conta@example.com" required />
                 </div>
                 <div className={styles.textfield}>
-                    <label for="senha">Senha</label>
-                    <input type='password' name='senha' placeholder="Senha"></input>
+                    <label for="senha" >Senha</label>
+                    <input type='password' name='senha' placeholder="Senha" required />
                 </div>
                 <button onSubmit={handleSubmit} className={styles.btnLogin}>Entrar</button>
             </div>
