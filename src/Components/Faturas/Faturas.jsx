@@ -67,14 +67,19 @@ function Faturas(props) {
     setPostData({ ...postData, [e.target.name]: e.target.value })
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     alert("teste")
     setShow(false)
+    
   }
 
   useEffect(() => {
+    setIsLoading(true)
     request()
+    setIsLoading(false)
 
   }, [])
 
@@ -130,6 +135,14 @@ function Faturas(props) {
     request()
     setUpdateModal(false)
     console.log(json)
+  }
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
   }
 
   return (
