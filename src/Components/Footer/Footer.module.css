@@ -4,7 +4,7 @@
     gap: 1rem;
     background-color: dodgerblue;
     align-items:center;
-    justify-content: initial;
+    justify-content: space-between;
 }
 
 .footer p{
@@ -17,4 +17,39 @@
     content: '® ';
     color: blanchedalmond;
 
+}
+
+.creditos{
+    display: block;
+    width: 25%;
+}
+
+.creditos h2 {
+    color: white;
+    font-family: 'Helvetica-neue', 'Helvetica', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    
+}
+
+.creditos ul {
+    list-style: none;
+    color: white;
+    font-family: 'Helvetica-neue', 'Helvetica', sans-serif;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+h2, a {
+    color: white;
+    padding-top: 0;
+}
+
+li{
+    padding-bottom: 2px;
 }

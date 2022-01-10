@@ -2,10 +2,20 @@ import React, { useEffect, useState } from 'react'
 import styles from './Faturas.module.css'
 import Modal from '../Modal/Modal'
 import Select from '../Select/Select'
-import ReqFaturas from './ReqFaturas'
+//import ReqFaturas from './ReqFaturas'
+import LoadingReq from '../Loading/LoadingReq'
+
 
 
 function Faturas(props) {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(()=>{
+      setLoading(false);
+    },2000)
+  }, [])
 
   const itemsMetodo = [{
     value: "cartao de credito",
@@ -123,6 +133,9 @@ function Faturas(props) {
   }
 
   return (
+
+    loading ? <LoadingReq/> :
+
     <div>
       <table>
         <thead>

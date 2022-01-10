@@ -2,6 +2,10 @@ import React from 'react'
 import styles from './Dashboard.module.css'
 import { Route, NavLink, Routes, BrowserRouter as Router } from "react-router-dom"
 import Faturas from '../Faturas/Faturas'
+import Funcionarios from '../Funcionarios/Funcionarios'
+import Hospedes from '../Hospedes/Hospedes'
+import Reservas from '../Reservas/Reservas'
+
 
 const data = [
   {
@@ -37,6 +41,15 @@ function Dashboard() {
         <Routes>
           <Route path="faturas" element={
             <Faturas info={data[0]}/>
+          }/>
+          <Route path="funcionarios" element={
+            <Funcionarios />
+          }/>
+          <Route path="hospedes" element={
+            <Hospedes />
+          }/>
+          <Route path="reservas" element={
+            <Reservas />
           }/>
         </Routes>
           
