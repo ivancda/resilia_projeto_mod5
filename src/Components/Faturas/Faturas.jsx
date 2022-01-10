@@ -138,14 +138,6 @@ function Faturas(props) {
     alert(json.mensagem || json.error)
   }
 
-  if (isLoading) {
-    return (
-      <section>
-        <p>Loading...</p>
-      </section>
-    );
-  }
-
   return (
 
 
