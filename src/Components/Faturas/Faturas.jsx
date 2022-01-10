@@ -69,6 +69,7 @@ function Faturas(props) {
     event.preventDefault();
     alert("teste")
     setShow(false)
+    
   }
 
   useEffect(() => {
@@ -135,6 +136,14 @@ function Faturas(props) {
     setUpdateModal(false)
     setLoading(false)
     alert(json.mensagem || json.error)
+  }
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
   }
 
   return (
