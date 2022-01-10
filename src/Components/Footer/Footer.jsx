@@ -8,7 +8,7 @@ function Footer() {
         Resilia - todos os direitos reservados
      </p>
      <div className={styles.creditos}>
-              <h2>Team</h2>
+              <h2>Desenvolvido por:</h2>
               <ul>
                 <li><a href='https://github.com/AlexPNO'>Alexandre</a></li>
                 <li><a href='https://github.com/ivancda'>Ivan</a></li>
