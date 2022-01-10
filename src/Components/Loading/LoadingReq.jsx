@@ -2,9 +2,12 @@ import React from 'react'
 import styles from '../Loading/Loading.module.css'
 
 
-const LoadingReq = () => {
+const LoadingReq = (props) => {
+    if(!props.show){
+        return null
+    }
     return (
-        <div className={styles.loader}>
+        <div className={`${styles.loader}`}>
             <h1 className={styles.titleLoading}>Carregando...</h1>  
              <div className={styles.skFadingCircle}>
                 <div className={`${styles.skCircle1} ${styles.skCircle}`}></div>
