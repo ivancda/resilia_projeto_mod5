@@ -35,10 +35,12 @@ function Faturas(props) {
     text: "cancelado"
   }]
 
-  const [show, setShow] = useState(false)
+  const [msg,setMsg] = useState("")
+
   const [deleteModal, setDeleteModal] = useState(false)
   const [updateModal, setUpdateModal] = useState(false)
   const [postModal, setPostModal] = useState(false)
+  const [alertModal, setAlertModal] = useState(false)
 
 
   const [data, setData] = useState([])
@@ -67,9 +69,6 @@ function Faturas(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert("teste")
-    setShow(false)
-    
   }
 
   useEffect(() => {
@@ -97,7 +96,8 @@ function Faturas(props) {
     request()
     setDeleteModal(false)
     setLoading(false)
-    alert(json.mensagem || json.error)
+    setMsg(json.mensagem||json.error)
+    setAlertModal(true)
   }
 
   async function post(data) {
@@ -113,12 +113,12 @@ function Faturas(props) {
       })
 
     const json = await response.json()
-    console.log(data)
-    console.log(json)
     request()
     setPostModal(false)
     setLoading(false)
-    alert(json.mensagem || json.error)
+    // alert(json.mensagem || json.error)
+    setMsg(json.mensagem||json.error)
+    setAlertModal(true)
   }
 
   async function update(id, data) {
@@ -135,7 +135,8 @@ function Faturas(props) {
     request()
     setUpdateModal(false)
     setLoading(false)
-    alert(json.mensagem || json.error)
+    setMsg(json.mensagem||json.error)
+    setAlertModal(true)
   }
 
   return (
@@ -172,8 +173,18 @@ function Faturas(props) {
         </table>
         <Modal text="Criar fatura" onClose={() => setPostModal(false)} show={postModal}>
           <form onSubmit={handleSubmit}>
-            <Select items={itemsMetodo} change={handleInputChange} value={postData.metodo_pagamento} name={"metodo_pagamento"} text={"Metodo de pagamento:"} />
-            <Select items={itemsStatus} change={handleInputChange} value={postData.status_pagamento} name={"status_pagamento"} text={"Status do Pagamento:"} />
+            <Select items={itemsMetodo}
+              change={handleInputChange}
+              value={postData.metodo_pagamento}
+              name={"metodo_pagamento"}
+              text={"Metodo de pagamento:"}
+            />
+            <Select items={itemsStatus}
+              change={handleInputChange}
+              value={postData.status_pagamento}
+              name={"status_pagamento"}
+              text={"Status do Pagamento:"}
+            />
             <label htmlFor="valor">Valor total da fatura:</label>
             <input className="valorPagamento" type="number" onInput={handleInputChange} value={postData.valor_total} name="valor_total" />
             <div className={styles.divBtn}>
@@ -184,8 +195,17 @@ function Faturas(props) {
         </Modal>
         <Modal text={`Editar fatura número: ${id}`} onClose={() => setUpdateModal(false)} show={updateModal}>
           <form onSubmit={handleSubmit}>
-            <Select items={itemsMetodo} change={handleInputChange} value={postData.metodo_pagamento} name={"metodo_pagamento"} text={"Metodo de pagamento:"} />
-            <Select items={itemsStatus} change={handleInputChange} value={postData.status_pagamento} name={"status_pagamento"} text={"Status do Pagamento:"} />
+            <Select items={itemsMetodo} change={handleInputChange}
+              value={postData.metodo_pagamento}
+              name={"metodo_pagamento"}
+              text={"Metodo de pagamento:"}
+            />
+            <Select items={itemsStatus}
+              change={handleInputChange}
+              value={postData.status_pagamento}
+              name={"status_pagamento"}
+              text={"Status do Pagamento:"}
+            />
             <label htmlFor="valor">Valor total da fatura:</label>
             <input className="valorPagamento" type="number" onInput={handleInputChange} value={postData.valor_total} name="valor_total" />
             <div className={styles.divBtn}>
@@ -198,6 +218,10 @@ function Faturas(props) {
           <p className={styles.warning}>Tem certeza que deseja deletar a fatura {id}? está ação não pode ser desfeita</p>
           <button className={styles.updateBtn} onClick={() => setDeleteModal(false)}>Cancelar</button>
           <button className={styles.deleteBtn} onClick={() => delet(id)}>Excluir</button>
+        </Modal>
+        <Modal text={"Mensagem:"} onClose={() => setAlertModal(false)} show={alertModal}>
+          <p className={styles.warning}>{msg}</p>
+          <button className={styles.updateBtn} onClick={() => setAlertModal(false)}>Cancelar</button>
         </Modal>
       </div>
   )
