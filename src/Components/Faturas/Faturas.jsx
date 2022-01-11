@@ -79,7 +79,7 @@ function Faturas(props) {
 
   useEffect(() => {
     request()
-  }, [request])
+  }, [])
 
   async function request() {
     setLoading(true)
@@ -232,7 +232,7 @@ function Faturas(props) {
         </Modal>
         <Modal text={"Mensagem:"} onClose={() => setAlertModal(false)} show={alertModal}>
           <p className={styles.warning}>{msg}</p>
-          <button className={styles.updateBtn} onClick={() => setAlertModal(false)}>Cancelar</button>
+          <button className={styles.updateBtn} onClick={() => setAlertModal(false)}>Fechar</button>
         </Modal>
       </div>
   )
