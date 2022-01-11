@@ -15,7 +15,7 @@
 
 .footer p::before{
     content: '® ';
-    color: blanchedalmond;
+    color: white;
 
 }
 
