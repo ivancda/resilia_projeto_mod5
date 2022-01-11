@@ -24,11 +24,13 @@ body * {
 }
 .leftLogin > h1 {
     font-size:3vw;
-    color:#088FFA
+    color:#088FFA;
+    margin-bottom: 20px;
 }
 
 .leftLoginImage{
     width:35vw;
+    margin-bottom: 75px;
 }
 .rightLogin{
     width: 100vh;
@@ -103,6 +105,12 @@ body * {
     padding:20px;
     font-weight: 800;
     color: red
+}
+
+.homeForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 710px){

@@ -73,7 +73,7 @@ function Faturas(props) {
 
   useEffect(() => {
     request()
-  }, [])
+  }, [request])
 
   async function request() {
     const response = await fetch(props.info.url)

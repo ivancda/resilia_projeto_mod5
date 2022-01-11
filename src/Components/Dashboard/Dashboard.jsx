@@ -5,7 +5,9 @@ import Faturas from '../Faturas/Faturas'
 import Funcionarios from '../Funcionarios/Funcionarios'
 import Hospedes from '../Hospedes/Hospedes'
 import Reservas from '../Reservas/Reservas'
+import imagemFundo from '../../assets/foto-dashboard.jpg'
 
+// const [img, setImg] = React.useState(true)
 
 const data = [
   {
@@ -28,9 +30,8 @@ const data = [
 
 function Dashboard() {
 
-
-
   return (
+
   <div className={styles.dashContainer}>
     <div className={styles.buttonBox}>
         <NavLink to="faturas" className={styles.botao}>Faturas</NavLink>
@@ -53,9 +54,8 @@ function Dashboard() {
           }/>
         </Routes>
           
-    
+    <img className={styles.imagemFundo} src={imagemFundo}/>
 
-    
   </div> 
   )
 }

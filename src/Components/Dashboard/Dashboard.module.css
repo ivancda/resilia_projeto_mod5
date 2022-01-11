@@ -27,3 +27,8 @@
 .botao:hover{
   box-shadow: none ;
 }
+
+.imagemFundo{
+  margin-bottom: 100px;
+  border-radius: 25px;
+}
