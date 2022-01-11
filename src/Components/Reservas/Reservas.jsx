@@ -2,6 +2,8 @@ import React from 'react'
 import LoadingReq from '../Loading/LoadingReq'
 import { useEffect, useState } from "react";
 
+// url=https://apireservas.herokuapp.com/reservas
+
 const Reservas = () => {
 
     const [loading, setLoading] = useState(true);

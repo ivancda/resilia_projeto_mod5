@@ -79,7 +79,7 @@ function Faturas(props) {
 
   useEffect(() => {
     request()
-  }, [])
+  }, [request])
 
   async function request() {
     setLoading(true)
@@ -121,7 +121,7 @@ function Faturas(props) {
         body: JSON.stringify(data),
       })
 
-    const json = await response.json()
+    const json = await response.json() 
     request()
     setPostModal(false)
     setLoading(false)
