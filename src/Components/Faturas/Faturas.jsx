@@ -63,6 +63,12 @@ function Faturas(props) {
     setDeleteModal(true)
   }
 
+  function postEvent(){
+    
+    setPostModal(true)
+  }
+
+
   const handleInputChange = e => {
     setPostData({ ...postData, [e.target.name]: e.target.value })
   };
@@ -76,9 +82,12 @@ function Faturas(props) {
   }, [])
 
   async function request() {
+    setLoading(true)
     const response = await fetch(props.info.url)
     const json = await response.json()
+    setLoading(false)
     return setData(json.Faturas)
+
   }
 
   async function delet(id) {
@@ -155,7 +164,7 @@ function Faturas(props) {
                 {Object.keys(data[0]).map((key) => (
                   <th>{key.toLowerCase().replace(/_/g, ' ')}</th>
                 ))}
-                <th><button className={styles.postBtn} onClick={() => setPostModal(true)} >Criar fatura</button></th>
+                <th><button className={styles.postBtn} onClick={() => postEvent() } >Criar fatura</button></th>
               </tr>
             )}
             {data.map((item) => (
@@ -171,19 +180,21 @@ function Faturas(props) {
             ))}
           </thead>
         </table>
-        <Modal text="Criar fatura" onClose={() => setPostModal(false)} show={postModal}>
+          <Modal text="Criar fatura" onClose={() => setPostModal(false)} show={postModal}>
           <form onSubmit={handleSubmit}>
             <Select items={itemsMetodo}
               change={handleInputChange}
               value={postData.metodo_pagamento}
               name={"metodo_pagamento"}
               text={"Metodo de pagamento:"}
+              defaultText={'Selecione um metodo de pagamento...'}
             />
             <Select items={itemsStatus}
               change={handleInputChange}
               value={postData.status_pagamento}
               name={"status_pagamento"}
               text={"Status do Pagamento:"}
+              defaultText={'Selecione o status do pagamento...'}
             />
             <label htmlFor="valor">Valor total da fatura:</label>
             <input className="valorPagamento" type="number" onInput={handleInputChange} value={postData.valor_total} name="valor_total" />
