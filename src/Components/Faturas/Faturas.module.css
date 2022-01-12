@@ -1,8 +1,8 @@
-thead tr:nth-child(even) {
+tbody tr:nth-child(even) {
  background-color: #f2f2f2;
 }
 
-thead tr:hover {
+tbody tr:hover {
     background-color: #ddd;
 }
 
@@ -23,7 +23,7 @@ td button, th button {
     width: 100px;
 }
 
-table{
+.dataTable{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -101,5 +101,21 @@ form input {
 
 
 label{
+
+    font-size: medium;
     color: black;
+}
+
+.searchBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    width: 50%;
+}
+
+input[type="checkbox"]{
+    width: 1.1rem;
+    vertical-align: middle;
 }

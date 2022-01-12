@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Dashboard.module.css'
 import { Route, NavLink, Routes, BrowserRouter as Router } from "react-router-dom"
 import Faturas from '../Faturas/Faturas'
@@ -7,7 +7,6 @@ import Hospedes from '../Hospedes/Hospedes'
 import Reservas from '../Reservas/Reservas'
 import imagemFundo from '../../assets/foto-dashboard.jpg'
 
-// const [img, setImg] = React.useState(true)
 
 const data = [
   {
@@ -28,20 +27,21 @@ const data = [
   },
 ]
 
+
 function Dashboard() {
 
   return (
 
   <div className={styles.dashContainer}>
-    <div className={styles.buttonBox}>
-        <NavLink to="faturas" className={styles.botao}>Faturas</NavLink>
+    <div className={styles.buttonBox} >
+        <NavLink to="faturas" className={styles.botao} >Faturas</NavLink>
         <NavLink to="hospedes" className={styles.botao}>Hospedes</NavLink>
         <NavLink to="reservas" className={styles.botao}>Reservas</NavLink>
         <NavLink to="funcionarios" className={styles.botao}>Funcionarios</NavLink>
     </div>    
         <Routes>
           <Route path="faturas" element={
-            <Faturas info={data[0]}/>
+            <Faturas info={data[0]} />
           }/>
           <Route path="funcionarios" element={
             <Funcionarios />
