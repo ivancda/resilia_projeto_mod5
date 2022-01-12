@@ -7,7 +7,6 @@ import Hospedes from '../Hospedes/Hospedes'
 import Reservas from '../Reservas/Reservas'
 import imagemFundo from '../../assets/foto-dashboard.jpg'
 
-// const [img, setImg] = React.useState(true)
 
 const data = [
   {
@@ -23,8 +22,8 @@ const data = [
     url: 'teste Url'
   },
   {
-    nome: 'teste',
-    url: 'teste Url'
+    nome: 'funcionarios',
+    url: 'https://api-hotel-m4.herokuapp.com/funcionarios'
   },
 ]
 
@@ -44,7 +43,7 @@ function Dashboard() {
             <Faturas info={data[0]}/>
           }/>
           <Route path="funcionarios" element={
-            <Funcionarios />
+            <Funcionarios info={data[3]}/>
           }/>
           <Route path="hospedes" element={
             <Hospedes />
@@ -54,7 +53,7 @@ function Dashboard() {
           }/>
         </Routes>
           
-    <img className={styles.imagemFundo} src={imagemFundo}/>
+    <img className={styles.imagemFundo} src={imagemFundo} alt="imagemDash"/>
 
   </div> 
   )
