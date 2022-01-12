@@ -44,6 +44,7 @@ const LoginForm = () => {
     }
 
     return (
+      
       <section className={styles.mainLogin}>
         
         <div className={styles.leftLogin}>
@@ -51,7 +52,7 @@ const LoginForm = () => {
         <img src={imagem} alt='imagemInicial' className={styles.leftLoginImage}></img>
         </div>
         <div className={styles.rightLogin}>
-          <form onSubmit={onSubmit}>
+          <form className={styles.homeForm} onSubmit={onSubmit}>
             <div className={styles.cardLogin}>
                 <h1>Acesse sua conta</h1>
                 <p>Ao acessar este site, você confirma que este computador está em conformidade com a política de segurança da sua organização.</p>

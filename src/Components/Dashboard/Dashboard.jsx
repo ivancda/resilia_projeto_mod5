@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Dashboard.module.css'
 import { Route, NavLink, Routes, BrowserRouter as Router } from "react-router-dom"
 import Faturas from '../Faturas/Faturas'
 import Funcionarios from '../Funcionarios/Funcionarios'
 import Hospedes from '../Hospedes/Hospedes'
 import Reservas from '../Reservas/Reservas'
+import imagemFundo from '../../assets/foto-dashboard.jpg'
 
 
 const data = [
@@ -21,29 +22,29 @@ const data = [
     url: 'teste Url'
   },
   {
-    nome: 'teste',
-    url: 'teste Url'
+    nome: 'funcionarios',
+    url: 'https://api-hotel-m4.herokuapp.com/funcionarios'
   },
 ]
 
+
 function Dashboard() {
 
-
-
   return (
+
   <div className={styles.dashContainer}>
-    <div className={styles.buttonBox}>
-        <NavLink to="faturas" className={styles.botao}>Faturas</NavLink>
+    <div className={styles.buttonBox} >
+        <NavLink to="faturas" className={styles.botao} >Faturas</NavLink>
         <NavLink to="hospedes" className={styles.botao}>Hospedes</NavLink>
         <NavLink to="reservas" className={styles.botao}>Reservas</NavLink>
         <NavLink to="funcionarios" className={styles.botao}>Funcionarios</NavLink>
     </div>    
         <Routes>
           <Route path="faturas" element={
-            <Faturas info={data[0]}/>
+            <Faturas info={data[0]} />
           }/>
           <Route path="funcionarios" element={
-            <Funcionarios />
+            <Funcionarios info={data[3]}/>
           }/>
           <Route path="hospedes" element={
             <Hospedes />
@@ -53,9 +54,8 @@ function Dashboard() {
           }/>
         </Routes>
           
-    
+    <img className={styles.imagemFundo} src={imagemFundo} alt="imagemDash"/>
 
-    
   </div> 
   )
 }

@@ -6,6 +6,7 @@ import LoadingReq from '../Loading/LoadingReq'
 
 
 
+
 function Faturas(props) {
 
   const [loading, setLoading] = useState(false);
@@ -63,6 +64,12 @@ function Faturas(props) {
     setDeleteModal(true)
   }
 
+  function postEvent(){
+    
+    setPostModal(true)
+  }
+
+
   const handleInputChange = e => {
     setPostData({ ...postData, [e.target.name]: e.target.value })
   };
@@ -76,9 +83,12 @@ function Faturas(props) {
   }, [])
 
   async function request() {
+    setLoading(true)
     const response = await fetch(props.info.url)
     const json = await response.json()
+    setLoading(false)
     return setData(json.Faturas)
+
   }
 
   async function delet(id) {
@@ -96,6 +106,7 @@ function Faturas(props) {
     request()
     setDeleteModal(false)
     setLoading(false)
+    console.log(id)
     setMsg(json.mensagem||json.error)
     setAlertModal(true)
   }
@@ -112,7 +123,7 @@ function Faturas(props) {
         body: JSON.stringify(data),
       })
 
-    const json = await response.json()
+    const json = await response.json() 
     request()
     setPostModal(false)
     setLoading(false)
@@ -139,12 +150,68 @@ function Faturas(props) {
     setAlertModal(true)
   }
 
+//////////////////////////////////////////////////////////////
+const [q,setQ] = useState("")
+const [searchColumns,setSearchColumns] = useState(['ID','METODO_PAGAMENTO','STATUS_PAGAMENTO','DATA_CRIACAO','ULTIMA_ATUALIZACAO'])
+
+// const columns = data[0] && Object.keys(data[0])
+
+function search(rows){
+  return rows.filter((row) => 
+  searchColumns.some(
+    (column) => row[column]?.toString().toLowerCase().indexOf(q.toLowerCase())>-1
+    )
+    )
+  }
+  
+  const columns = data[0] && Object.keys(data[0])
+
+
   return (
-
-
     loading ? <LoadingReq show={loading} /> :
       <div>
-        <table>
+          <div>
+            <input className={styles.search} type="text" value={q.toLowerCase()} onChange={(e) => setQ(e.target.value)} placeholder='Buscar...'/>
+            <h2>Filtros de busca</h2>
+            <div className={styles.searchBox}>
+            {columns && 
+              columns.map((column)=>(
+                <label htmlFor={column}>
+                  {column.toString().toLowerCase().replace(/_/g, ' ')}
+                  <input name={column} type="checkbox" 
+                    checked={searchColumns.includes(column)}
+                    onChange={(e) =>{
+                      const checked = searchColumns.includes(column)
+                      setSearchColumns((prev)=>checked?prev.filter((sc)=>sc!==column):[...prev, column])
+                    }} />
+                </label>
+              ))}
+              </div>
+          </div>
+         <table >
+            <thead>
+                <tr>
+                <th colSpan="6" >Faturas</th>
+                <th>Ações</th>
+                </tr>
+                <tr>{data[0] && columns.map((heading)=><th>{heading.toLowerCase().replace(/_/g, ' ')}</th>)}<th><button className={styles.postBtn} onClick={() => postEvent() } >Criar fatura</button></th></tr>
+            </thead>
+            <tbody>
+                {search(data).map(row=> <tr>
+                    {
+                        columns.map(column => <td>{row[column]}</td>)
+                    }
+                     <td>
+                     <button className={styles.updateBtn} onClick={() => updateEvent(row.ID)}>Editar</button>
+                  <button className={styles.deleteBtn} onClick={() => deleteEvent(row.ID)}>Excluir</button>
+                </td>
+                </tr>)}
+            </tbody>
+        </table>  
+        {/* {<DataTable data={search(data)}
+                    
+        />}
+        <table className={styles.DataTable}>
           <thead>
             <tr>
               <th colSpan="6" >Faturas</th>
@@ -155,7 +222,7 @@ function Faturas(props) {
                 {Object.keys(data[0]).map((key) => (
                   <th>{key.toLowerCase().replace(/_/g, ' ')}</th>
                 ))}
-                <th><button className={styles.postBtn} onClick={() => setPostModal(true)} >Criar fatura</button></th>
+                <th><button className={styles.postBtn} onClick={() => postEvent() } >Criar fatura</button></th>
               </tr>
             )}
             {data.map((item) => (
@@ -170,20 +237,22 @@ function Faturas(props) {
               </tr>
             ))}
           </thead>
-        </table>
-        <Modal text="Criar fatura" onClose={() => setPostModal(false)} show={postModal}>
+        </table> */}
+          <Modal text="Criar fatura" onClose={() => setPostModal(false)} show={postModal}>
           <form onSubmit={handleSubmit}>
             <Select items={itemsMetodo}
               change={handleInputChange}
               value={postData.metodo_pagamento}
               name={"metodo_pagamento"}
               text={"Metodo de pagamento:"}
+              defaultText={'Selecione um metodo de pagamento...'}
             />
             <Select items={itemsStatus}
               change={handleInputChange}
               value={postData.status_pagamento}
               name={"status_pagamento"}
               text={"Status do Pagamento:"}
+              defaultText={'Selecione o status do pagamento...'}
             />
             <label htmlFor="valor">Valor total da fatura:</label>
             <input className="valorPagamento" type="number" onInput={handleInputChange} value={postData.valor_total} name="valor_total" />
@@ -221,7 +290,7 @@ function Faturas(props) {
         </Modal>
         <Modal text={"Mensagem:"} onClose={() => setAlertModal(false)} show={alertModal}>
           <p className={styles.warning}>{msg}</p>
-          <button className={styles.updateBtn} onClick={() => setAlertModal(false)}>Cancelar</button>
+          <button className={styles.updateBtn} onClick={() => setAlertModal(false)}>Fechar</button>
         </Modal>
       </div>
   )
