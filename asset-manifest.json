@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/resilia_projeto_mod5/static/css/main.c2b78231.css",
-    "main.js": "/resilia_projeto_mod5/static/js/main.8d1119fe.js",
+    "main.css": "/resilia_projeto_mod5/static/css/main.615ba332.css",
+    "main.js": "/resilia_projeto_mod5/static/js/main.a05aec27.js",
     "static/media/Montserrat-Regular.ttf": "/resilia_projeto_mod5/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/img-login.png": "/resilia_projeto_mod5/static/media/img-login.2b2b459434a837a1382a.png",
     "static/media/foto-dashboard.jpg": "/resilia_projeto_mod5/static/media/foto-dashboard.db7988589f91bb4f2f71.jpg",
     "static/media/logo.png": "/resilia_projeto_mod5/static/media/logo.53bb905065a65e8bf37e.png",
     "index.html": "/resilia_projeto_mod5/index.html",
-    "main.c2b78231.css.map": "/resilia_projeto_mod5/static/css/main.c2b78231.css.map",
-    "main.8d1119fe.js.map": "/resilia_projeto_mod5/static/js/main.8d1119fe.js.map"
+    "main.615ba332.css.map": "/resilia_projeto_mod5/static/css/main.615ba332.css.map",
+    "main.a05aec27.js.map": "/resilia_projeto_mod5/static/js/main.a05aec27.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2b78231.css",
-    "static/js/main.8d1119fe.js"
+    "static/css/main.615ba332.css",
+    "static/js/main.a05aec27.js"
   ]
 }
