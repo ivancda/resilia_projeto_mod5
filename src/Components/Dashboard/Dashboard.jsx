@@ -54,7 +54,7 @@ function Dashboard() {
           }/>
         </Routes>
           
-    <img className={styles.imagemFundo} src={imagemFundo}/>
+    {/* <img className={styles.imagemFundo} src={imagemFundo}/> */}
 
   </div> 
   )
