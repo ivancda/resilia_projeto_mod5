@@ -1,11 +1,10 @@
-import React, {  useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Funcionarios.module.css'
 import Modal from '../Modal/Modal'
-// import Select from '../Select/Select'
 import LoadingReq from '../Loading/LoadingReq'
 
 const Funcionarios = (props) => {
-
+    console.log(props)
 
     const [loading, setLoading] = useState(false);
 
@@ -18,6 +17,7 @@ const Funcionarios = (props) => {
 
     const [data, setData] = useState([])
     const [id, setId] = useState(0)
+
 
     const [postData, setPostData] = useState({
         "Nome_Completo": "",
@@ -57,20 +57,23 @@ const Funcionarios = (props) => {
         event.preventDefault();
     }
 
-    // useEffect(() => {
-    //     request()
-    // }, [request])
-
+    useEffect(() => {
+        request()
+    }, [])
 
     //-------------GET--------------//
     async function request() {
+
+        
         setLoading(true)
         const response = await fetch(props.info.url)
         const json = await response.json()
         setLoading(false)
-        return setData(json.Faturas)
-    
+        console.log(data)
+        return setData(json.funcionarios)
+      
     }
+
     //-----------POST--------------//
     async function post(){
         setLoading(true)
@@ -91,9 +94,10 @@ const Funcionarios = (props) => {
         setAlertModal(true)
     }
     //----------------------UPDATE----------------//
+
     async function update(id, data){
         setLoading(true)
-        const response = await fetch(`${props.info.url}`,
+        const response = await fetch(`${props.info.url}/${id}`,
         {
             method: 'PATCH',
             headers: {
@@ -107,7 +111,7 @@ const Funcionarios = (props) => {
         request()
         setUpdateModal(false)
         setLoading(false)
-        setMsg(json.mensagem||json.error)
+        setMsg(json.msg||json.erro)
         setAlertModal(true)
     }
     //------------------------DELETE-----------------------//
@@ -127,7 +131,7 @@ const Funcionarios = (props) => {
     setDeleteModal(false)
     setLoading(false)
     console.log(id)
-    setMsg(json.mensagem||json.error)
+    setMsg(json.msg||json.error)
     setAlertModal(true)
   }
   //-------------------------------------------------//
@@ -142,40 +146,22 @@ const Funcionarios = (props) => {
       )
     }
 
-    const columns = data[1] && Object.keys(data[0])
+    const columns = data[0] && Object.keys(data[0])
 
 
     return (
     loading ? <LoadingReq show={loading} /> :
     <div>
-        {/* <div>
-            <input className={styles.search} type="text" value={bra.toLowerCase()} onChange={(e) => setBra(e.target.value)} placeholder='Buscar...'/>
-            <h2>Filtros de busca</h2>
-            <div className={styles.searchBox}>
-            {columns && 
-                columns.map((column)=>(
-                    <label htmlFor={column}>
-                    {column.toString().toLowerCase().replace(/_/g, ' ')}
-                    <input name={column} type="checkbox" 
-                        checked={searchColumns.includes(column)}
-                        onChange={(e) =>{
-                        const checked = searchColumns.includes(column)
-                        setSearchColumns((prev)=>checked?prev.filter((sc)=>sc!==column):[...prev, column])
-                        }} />
-                    </label>
-            ))}
-            </div>
-        </div> */}
         <table >
-            <thead>
+        <thead>
                 <tr>
-                <th colSpan="6" >Funcionários</th>
+                <th colSpan="12" >Funcionarios</th>
                 <th>Ações</th>
                 </tr>
-                <tr>{data[0] && columns.map((heading)=><th>{heading.toLowerCase().replace(/_/g, ' ')}</th>)}<th><button className={styles.postBtn} onClick={() => postFuncionario() } >Adicionar Funcionário</button></th></tr>
+                <tr>{data[0] && columns.map((heading)=><th>{heading.toLowerCase().replace(/_/g, ' ')}</th>)}<th><button className={styles.postBtn} onClick={() => postFuncionario() } >Add Funcionario</button></th></tr>
             </thead>
             <tbody>
-                {search(data).map(row=> <tr>
+                {data.map(row=> <tr>
                     {
                         columns.map(column => <td>{row[column]}</td>)
                     }
@@ -186,22 +172,8 @@ const Funcionarios = (props) => {
                 </tr>)}
             </tbody>
         </table>
-        <Modal text="Adicionar Funcionário" onClose={() => setPostModal(false)} show={postModal}>
-          <form onSubmit={handleSubmit}>
-            {/* <Select items={itemsMetodo}
-              change={handleInputChange}
-              value={postData.metodo_pagamento}
-              name={"metodo_pagamento"}
-              text={"Metodo de pagamento:"}
-              defaultText={'Selecione um metodo de pagamento...'}
-            />
-            <Select items={itemsStatus}
-              change={handleInputChange}
-              value={postData.status_pagamento}
-              name={"status_pagamento"}
-              text={"Status do Pagamento:"}
-              defaultText={'Selecione o status do pagamento...'}
-            /> */}
+        <Modal  text="Adicionar Funcionário" onClose={() => setPostModal(false)} show={postModal}>
+          <form className={styles.modalFunc} onSubmit={handleSubmit}>
             <label htmlFor="Nome_Completo">Nome completo do funcionário</label>
             <input className="valorPagamento" type="text" onInput={handleInputChange} value={postData.Nome_Completo} name="Nome_Completo" />
             <label htmlFor="Email">E-mail</label>
