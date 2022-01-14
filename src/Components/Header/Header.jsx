@@ -10,7 +10,7 @@ export default function Header(){
     
       <ul className={styles.lista}>
       <Link to="/resilia_projeto_mod5"><li>Home</li></Link>
-      <Link to="/resilia_projeto_mod5/dashboard"><li>Dashboard</li></Link>
+      {/* <Link to="/resilia_projeto_mod5/dashboard"><li>Dashboard</li></Link> */}
       <Link to="/resilia_projeto_mod5/suporte"><li>Suporte</li></Link>
       </ul>
     </nav>
