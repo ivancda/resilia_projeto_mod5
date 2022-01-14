@@ -25,6 +25,9 @@ Para executar na sua máquina, clone este repositório, acesse a pasta do reposi
  
  Aplicação desenvolvida por: 
  [Alexandre Prudente](https://github.com/AlexPNO)
+ 
  [Ivan Coelho](https://github.com/ivancda)
+ 
  [Patrícia Andrade](https://github.com/patandrade09)
+ 
  [Pedro Junior](https://github.com/Pedro-jds)
