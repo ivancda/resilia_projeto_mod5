@@ -1,0 +1,4 @@
+.modalFunc{
+    display: flex;
+    flex-direction: column;
+}

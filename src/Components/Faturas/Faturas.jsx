@@ -5,11 +5,7 @@ import Select from '../Select/Select'
 import LoadingReq from '../Loading/LoadingReq'
 
 
-
-
 function Faturas(props) {
-
-  const [loading, setLoading] = useState(false);
 
   const itemsMetodo = [{
     value: "cartao de credito",
@@ -35,14 +31,18 @@ function Faturas(props) {
     value: "cancelado",
     text: "cancelado"
   }]
-
+  
+  const [loading, setLoading] = useState(false);
+ 
   const [msg,setMsg] = useState("")
-
+  
   const [deleteModal, setDeleteModal] = useState(false)
+  
   const [updateModal, setUpdateModal] = useState(false)
+  
   const [postModal, setPostModal] = useState(false)
+  
   const [alertModal, setAlertModal] = useState(false)
-
 
   const [data, setData] = useState([])
 
@@ -106,7 +106,6 @@ function Faturas(props) {
     request()
     setDeleteModal(false)
     setLoading(false)
-    console.log(id)
     setMsg(json.mensagem||json.error)
     setAlertModal(true)
   }
@@ -127,7 +126,6 @@ function Faturas(props) {
     request()
     setPostModal(false)
     setLoading(false)
-    // alert(json.mensagem || json.error)
     setMsg(json.mensagem||json.error)
     setAlertModal(true)
   }
@@ -150,11 +148,9 @@ function Faturas(props) {
     setAlertModal(true)
   }
 
-//////////////////////////////////////////////////////////////
+//filtros de busca
 const [q,setQ] = useState("")
 const [searchColumns,setSearchColumns] = useState(['ID','METODO_PAGAMENTO','STATUS_PAGAMENTO','DATA_CRIACAO','ULTIMA_ATUALIZACAO'])
-
-// const columns = data[0] && Object.keys(data[0])
 
 function search(rows){
   return rows.filter((row) => 
@@ -208,36 +204,6 @@ function search(rows){
                 </tr>)}
             </tbody>
         </table>  
-        {/* {<DataTable data={search(data)}
-                    
-        />}
-        <table className={styles.DataTable}>
-          <thead>
-            <tr>
-              <th colSpan="6" >Faturas</th>
-              <th>Ações</th>
-            </tr>
-            {data.length > 0 && (
-              <tr key={"header"}>
-                {Object.keys(data[0]).map((key) => (
-                  <th>{key.toLowerCase().replace(/_/g, ' ')}</th>
-                ))}
-                <th><button className={styles.postBtn} onClick={() => postEvent() } >Criar fatura</button></th>
-              </tr>
-            )}
-            {data.map((item) => (
-              <tr>
-                {Object.values(item).map((val) => (
-                  <td>{val}</td>
-                ))}
-                <td>
-                  <button className={styles.updateBtn} onClick={() => updateEvent(item.ID)}>Editar</button>
-                  <button className={styles.deleteBtn} onClick={() => deleteEvent(item.ID)}>Excluir</button>
-                </td>
-              </tr>
-            ))}
-          </thead>
-        </table> */}
           <Modal text="Criar fatura" onClose={() => setPostModal(false)} show={postModal}>
           <form onSubmit={handleSubmit}>
             <Select items={itemsMetodo}
