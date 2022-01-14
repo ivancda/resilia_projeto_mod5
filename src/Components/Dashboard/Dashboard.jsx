@@ -14,8 +14,8 @@ const data = [
     url: 'https://faturas-hotel-api.herokuapp.com/faturas'
   },
   {
-    nome: 'teste',
-    url: 'teste Url'
+    nome: 'funcionarios',
+    url: 'https://api-hotel-m4.herokuapp.com/funcionarios'
   },
   {
     nome: 'teste',
@@ -44,7 +44,7 @@ function Dashboard() {
             <Faturas info={data[0]} />
           }/>
           <Route path="funcionarios" element={
-            <Funcionarios />
+            <Funcionarios info={data[1]}/>
           }/>
           <Route path="hospedes" element={
             <Hospedes />
@@ -54,7 +54,11 @@ function Dashboard() {
           }/>
         </Routes>
           
+<<<<<<< HEAD
     {/* <img className={styles.imagemFundo} src={imagemFundo}/> */}
+=======
+    <img className={styles.imagemFundo} src={imagemFundo} alt="imagemDash"/>
+>>>>>>> 65ad384a43c1687a6443b2d1c53ee42ccfcf9ad9
 
   </div> 
   )
